@@ -1,0 +1,267 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\begin{document}
+
+\title{Multi Crop Recommendation Accuracy and Predictive Analysis Based on Machine Learning Algorithms\\
+{\footnotesize \textsuperscript{}
+}
+
+}
+
+\author{
+\IEEEauthorblockN{\textsuperscript{1}Wasee Ahsan}
+ \IEEEauthorblockA{
+        \textit{Department of Science and Technology} \\
+        \textit{American International University-Bangladesh} \\
+        Dhaka, Bangladesh \\
+        waseeahsan39@gmail.com
+    }
+     \and
+     \and
+     \and
+     \and
+     \and
+     \and
+    \and
+    \IEEEauthorblockN{\textsuperscript{2}Nabiha Tahsin}
+    \IEEEauthorblockA{
+        \textit{Department of Science and Technology} \\
+        \textit{American International University-Bangladesh} \\
+        Dhaka, Bangladesh \\
+        tahsin.n611@gmail.com
+    }
+     \and
+    \and
+    \IEEEauthorblockN{\textsuperscript{3}Jannat Ara Tasnim}
+    \IEEEauthorblockA{
+        \textit{Department of Science and Technology} \\
+        \textit{American International University-Bangladesh} \\
+        Dhaka, Bangladesh \\
+        jannatara2399@gmail.com
+    }
+     \and
+     \and
+     \and
+     \and
+     \and
+     \and
+    \and
+    \IEEEauthorblockN{\textsuperscript{4}Yeameen Aziz Abdullah}
+    \IEEEauthorblockA{
+   \textit{Department of Science and Technology} \\
+        \textit{American International University-Bangladesh} \\
+        Dhaka, Bangladesh \\
+        yeameenaziz1@gmail.com
+    }
+}
+\maketitle
+
+\begin{abstract}
+Crop recommendation in agriculture is the process of advising farmers on the most suitable crops to grow in specific regions, considering some natural and meteorological factors like soil type, climate etc. to maximize productivity and sustainability. This paper aims to find the suitable crops to recommend to farmers with multiple choices for yielding crops without risks in-season and off-season through machine learning techniques. This study covers the "Crop recommendation" dataset and applies multiple Machine Learning algorithms- Logistic Regression, XGBoost, CATboost, Random Forest. After training with these models, XGBoost classifier gives a much satisfactory results than others with a proper ROC curve as a result. According to this finding, an app system is deployed which displays the best crop choices with XGBoost Classifier highlighting the advanced determining technique and advantage of machine learning. This research contributes valuable insights into the data-driven agricultural practices, helping farmers optimize crop yield and decision-making with multiple recommendation choices.
+\end{abstract}
+
+\vspace{0.5cm} % Adjust the value to increase/decrease space
+
+\textit{\textbf{Keywords:} Multi-Crop Recommendation, Agriculture, Sustainability, XGBoost, System, Machine Learning}
+
+
+
+
+\section{Introduction}
+Agriculture is the foundation of global food supply, nutrition security and economic stability, yet farmers frequently face considerable hurdles when selecting the best crops for production. Traditional crop selection approaches fail to account for the complicated interaction of variables such as changing environmental conditions, degrading soil health day by day resulting in poor yields and resource inefficiency.\cite{kumar2024enhanced} Farmers often follow conventional agricultural procedures when determining which crops to produce in their fields. Crop yield is heavily influenced by meteorological conditions and soil qualities, yet farmers often overlook this.\cite{kumar2024enhanced}  As natural factors and soil qualities tend of geographical area tend to change by seasons, the crop suitable for production efficiency may be switched to alternate crop choices too. 
+In recent years, machine learning (ML) has emerged as a transformational technology in agriculture, allowing for data-driven crop suggestions based on local circumstances.\cite{9214190} Crop selection relies on input factors such as temperature, acreage, and irrigation techniques. Precision in crop selection is achieved by adopting appropriate inputs and models without harming or changing the agricultural production system or nature in a geographical state.\cite{9418375}
+This study uses the Crop Recommendation Dataset to investigate the possibilities of machine learning for multi-crop recommendation systems. Unlike traditional single-crop frameworks, this method promotes sustainable agriculture practices by maximizing resource utilization and multiple choices for suitable crop. A variety of machine learning methods, including Random Forest, Logistic Regression, XGBoost Classifier, and CATBoost Classifier are examined for their accuracy and predictive potential in crop recommendation. By including different environmental and soil characteristics, the study hopes to create strong, scalable, and flexible models that can meet the diverse demands of modern farming and help in increasing production.
+This research contributes to society and the economy by developing machine learning-based models for predicting various crop choices. This research demonstrates how comparative and alternative numerous crops may be generated for increased food supply and balanced economic strength. It investigates the prediction of machine learning models, the outcomes and discussion of findings, and finishes with recommendations, limits, and future research prospects.
+
+
+\section{Literature Review}
+
+
+Crop recommendation using machine learning techniques have already been here for some time gradually making progress in agricultural industry for betterment. E. Prem Kumar and Priyadarshini R et al. \cite{kumar2024enhanced}  have proposed a machine learning-based recommendation system for multi-crop farming to enhance precision agriculture. Their method integrates real-time data, soil characteristics, and crop compatibility in order to recommend multiple crops for cultivation. By focusing on nutrient requirements and environmental factors, the proposed system optimizes land use and aids in crop diversification. It evidences the capabilities of advanced machine learning algorithms in maximizing yield and guaranteeing sustainability. 
+Kalimuthu et al.\cite{9214190} intended to present a crop prediction model that uses the random forest and Naive Bayes methods of supervised learning algorithms. In this work, the study looks at how far soil and climatic conditions are always variable and attempts to give practical solutions in optimizing crop selection. It shows the flexibility of these algorithms in dynamic agricultural datasets and gives a framework for accurate and data-driven recommendations. Priyadharshini et al. \cite{9418375} This work focuses on intelligent crop recommendations using machine learning algorithms like Decision Trees and Support Vector Machines. The system enhances crop yield prediction by analyzing soil and climate data. The research outlines how environmental factors integrated into decision-making processes can enhance farming outcomes; hence, it is an indispensable tool for single-crop farming systems. Vijayabaskar et al. \cite{8290395} mentioned in the study that utilizes predictive analytics to improve crop productivity by showing how historical and seasonal data are vital in predicting the best crops. It highlights how data analysis can reduce uncertainties in traditional agriculture, hence serving as an effective approach to sustainable farming by focusing on soil health and weather patterns. 
+Pudumalar et al. \cite{7951740} authors have designed a precision agriculture system which, based on integration of data from soil quality and environmental parameters, suggests the right crop. This system uses real-time data in dynamically suggesting crops to farmers, hence showing the importance of timely information in enhancing agricultural productivity. Onoriode et al. \cite{13458882} This work focuses on optimization techniques for machine learning algorithms in crop recommendation systems through model parameter tuning and ensemble techniques that combine several models. The resultant framework ensures that the proposed system will be scalable and can be used in many regions under diverse farming conditions. 
+Aimufua et al. \cite{aimufua2024stacking} introduces a stacking ensemble-based approach that combines predictions from multiple base algorithms, resulting in improved accuracy in crop recommendations. This technique is especially effective in addressing the challenges of diverse and heterogeneous agricultural environments.  Senapaty et al. \cite{senapaty2024decision} A decision support system leveraging machine learning classifiers, such as K-Nearest Neighbors and Logistic Regression, is proposed in this study. By integrating soil, climate, and market data, the system provides comprehensive recommendations tailored to the farmer's needs. The model's practical application in real-world farming makes it a significant contribution to the field. 
+
+
+
+The review of the related studies together refers to the potential of machine learning algorithms in the recommendation system for crops. Although previous research achieved certain milestones for single-crop prediction and precision agriculture, latest developments such as multi-crop recommendation systems presented holistic solutions for diverse farming. Real-time environmental data integration, nutrient analysis, and ensemble techniques have increased the adaptability and accuracy of these systems. While working on dynamic datasets, scalability improvement is one of the future works, handling factors related to the usability of farmers who are nontechnical still remains very interesting. These results thus provide a foundation from various studies in realizing powerful and user-friendly multi-crop preferring models responsive to the changing applications of modern farming.
+
+
+\section{Methodology}
+This research work is focused on developing a multiple and robust recommendation system for crops by using some of the advanced models of machine learning. Instead of just one crop, this study wants to have an overview whether an alternate crop selection choice is perceived. The methodology of this study includes data preprocessing, model implementation, and evaluation. Each model is briefly explained with its working mechanism to provide insight into their roles in the system.
+In developing the "Multi-Crop Recommendation System" based on machine learning algorithms, a number of tools and libraries were used. Python was the primary language of implementation because it is powerful and flexible. For data manipulation, pandas and numpy were used, while for visualization, matplotlib and seaborn were used, thus allowing comprehensive data analysis and insights. Machine learning models, including Logistic Regression, Random Forest, CatBoost, and XGBoost, were implemented using scikit-learn and specialized libraries. The entire development process was carried out on Google Colab, leveraging its computational efficiency and GPU support to optimize performance.
+
+\centerline{\includegraphics{WorkFlow.png}}
+
+\begin{figure}[h]
+\caption{Fig. 1. Block Diagram of workflow}
+\end{figure}
+
+The first step in this research is finding the dataset related to the study goals. The dataset used for this study was retrieved from Kaggle's "Croprecommendation.csv," containing 2,201 records.The dataset used for this study was obtained from Kaggle's "Crop Recommendation Dataset." It contains 2,200 records with seven key features: Nitrogen (N), Phosphorus (P), Potassium (K), temperature (°C), hu\-mid\-ity (%),
+pH, and rainfall (mm).This is the "label" for crop type, which represents the target variable for given environmental parameters. The encoding was done to make the data compatible with model training. This sourced dataset was at a preprocessed stage; it was checked for missing values in the dataset, if any. The target variable is the recommended crop for specific environmental conditions.
+
+After the preprocessing step, a full EDA step was done to understand the dataset. It included the generation of different visualizations, such as histograms and boxplots, studying the distribution of features and detecting potential outliers. Furthermore, a correlation heatmap was created to study the relations among features and get useful insights on how each may influence the target variable. Histograms were used to analyze the distribution of features, boxplots to detect outliers, and correlation heatmaps to identify relationships among features. These tools provided insights into data patterns, variability, and feature interactions, ensuring effective preprocessing and improved model performance.
+
+For the model selection phase, four machine learning models were chosen to evaluate: Logistic Regression (LR), Random Forest (RF), XGBoost Classifier (XGB), and CatBoost Classifier (CB). These models represent diverse algorithmic approaches, ranging from simple linear models to advanced ensemble methods, ensuring a comprehensive comparison:
+\subsection{Logistic Regression}\label{AA}
+Logistic Regression is a statistical model that uses the logistic function to estimate probabilities for a binary or multi-class target variable. It calculates the probability of each class and chooses the class with the highest probability. Formula for Logistic Regression-
+\begin{equation}
+    P(y=1 \mid x)=\frac{1}{1+e^{-\left(\beta_0+\beta x,+\beta_{2 x_2}+\ldots \ldots \beta_p x_P\right)}}
+\end{equation}
+
+
+\subsection{CATBoost Classifier}\label{AA}
+
+CATBoost is a type of gradient boosting that can deal with categorical and numerical data. Though it does not require any feature encoding approaches, such as Label Encoder, it transforms category characteristics to numerical ones. It also manages missing values in the dataset automatically so that overfitting can be avoided and the overall performance of the dataset can be improved.\cite{javapoint2025} CATboost is chosen because it works efficiently with both types of data and reduces the complexity of preprocessing. For loss minimization, the formula is-- 
+\begin{equation}
+   L=\sum_{i=1}^N l\left(y_1, \widehat{y} i\right)+\lambda \sum_{j=1}^M \omega_j^2
+\end{equation}
+
+where \( l(y_i, \hat{y}_i) \) is the loss function, \( \omega_j \) represents the weights of the characteristics, and \( \lambda \) is the regularization parameter.
+
+\subsection{XGBoost Classifier}\label{AA}
+XGBoost is an ensemble learning that uses decision trees as base learners for improving the performance of a model. Boosting corrects the errors of the previously made trees. It has inbuilt support for parallel processing, which enables faster training on larger datasets, and it allows customizations to optimize any particular problem at hand. It starts with a base learner, calculates the error, trains the next tree, and this process goes on until the stopping criterion is reached, and finally, the prediction is the sum of the predictions by all trees.\cite{geeksforgeeks2025} This model was chosen because it has very high predictive power in performance and strength for nonlinear data handling. Formula for XGBoost Classifier -
+
+\begin{equation}
+   o_{b j}=\sum_{i=1}^n l(y i, \widehat{y} i)+\sum_{k=1}^k \Omega\left(f_k\right)
+\end{equation}
+
+\subsection{Random Forrest}\label{AA}
+A popular decision tree-based ensemble learning algorithm that works by combining predictions from multiple trees: this improves the overall accuracy and reduces overfitting. Because it can handle high-dimensional data with ease and give importance to features, it is chosen. Formula for random forest-
+
+\begin{equation}
+   \widehat{y}=\frac{1}{n} \sum_{i=1}^n T i(x)
+\end{equation}
+
+The selected dataset was divided into two subsets: one for training and the other for testing. To ensure proper validation, the training dataset was further split into two parts, with 80\% allocated for training and 20\% for validation. The testing was performed using the test dataset. The evaluation metrics included the AUC value and the ROC curve, which were used to assess the performance of the model. The goal was to identify the best-performing model for recommending the most suitable crop based on the given environmental conditions.
+
+\section{Analysis}
+In this study, we assessed the performance of several machine learning models, focusing on how their capacity to manage nonlinearity affects their outcomes. It is critical to first understand the characteristics of the dataset used to predict emotional well-being based on social media activity. 
+
+\centerline{\includegraphics{dv.png}}
+\begin{figure}[h]
+
+\caption{Variable Distribution in Histogram}
+\end{figure}
+
+These variable distributions provide insight into the variability and common ranges of each parameter, crucial for predicting crop recommendations. This histogram with density plot displays the distribution of six agricultural and environmental variables. Nitrogen (N) and Potassium (K) are positively skewed, the majority of the values falling within the lower range; for N between 20-60, K values fall between 0-50. Phosphorus is multimodal, with double peaks around 30 and 60. Temperature is close to normal around 25 degrees Centigrade, ranging between 10 and 45 degrees Centigrade. The humidity is bimodally distributed around 60\% and 90\%, showing changes in surroundings. Rainfall is a little skewed and peaks between 50-100 mm, although it further extends to 300 mm. Overall, this dataset is pretty diverse, and a number of the variables suggest regional or environmental variability.
+
+\centerline{\includegraphics{heatmap2.png}}
+\begin{figure}[h]
+
+\caption{Heatmap to show correlation of variables}
+\end{figure}
+
+
+The heatmap represents the various agricultural and environmental attribute correlation coefficients that lie between -1 and 1. A very strong positive correlation of 0.74 exists between P and K, which indicates that both these nutrients mostly increase together. Simultaneously, a weak correlation can be observed for variables such as N and pH or Rainfall and K close to 0, which indicates negligible or no linear relationship between the two continuous variables. The negative values of some of these correlations, like Nitrogen and Phosphorus, correspond to a value of -0.23, hence showing a weak negative correlation. The diagonal is perfect self-correlation (value = 1), as would be expected. Overall, this heatmap shows how the variables are related and highlights the need to handle overlapping information and how each feature is related to understanding the element’s importance in the study’s determination.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{LRO.png}
+    \caption{Confidence output of Logistic Regression}
+    \label{fig:logistic_regression}
+\end{figure}
+
+
+
+
+Here in logistic regression, the first real or target variable is rice. The result for the first recommendation is also rice with a probability of 52.11\%, whereas the second recommendation has a probability of 44.41\%. This is not a good result for the second crop choice, as it carries a risk of loss and uncertainty. Among the linear models, the best performance is achieved by logistic regression in binary classification. However, these models may fail to perform well since the classification in this case is not binary, and the data exhibits obvious non-linearity with overlapping class correlations. This suboptimal performance is a result of these models' inability to capture the intricate interactions between features. \cite{geeksforgeekslogistic2025}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{CATBO.png}
+    \caption{Confidence analysis of CATBoost Regression}
+    \label{fig:catboost}
+\end{figure}
+
+CATBoost predicts the probability of an event or class based on input features. But here in this study, CATBoost couldn’t give the best confidence for our second crop choice as it only focused on the primary crop and measured 2nd one including the first one too when building it. 
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{XGBO.png}
+    \caption{Confidence analysis of XGBoost Regression}
+    \label{fig:xgboost}
+\end{figure}
+
+
+
+In that sense, the XGBoost comparatively gave a lot better result for both crop recommendation as we can see. Some 2nd best confidence is above 50-80 \% which refers better recommendations technique for example sample 1, 6, 7 etc.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{RFO.png}
+    \caption{Confidence analysis of Random Forrest}
+    \label{fig:rf}
+\end{figure}
+
+
+Random forest classifier which has the least confidence for second crop as random forest uses a random sample of the data and a random subset of features at each split, it’s more like a voting system voting for only the best one crop excluding any other.\cite{ibm2025}  
+Among the linear models, the best performance comes from logistic regression in binary classification. But as the data here are non-linear so, these models may fail to perform well since the classification here is not binary and the data shows obvious non-linearity with overlapping class correlations. This suboptimal performance is a result of these models' inability to grasp the intricate interactions between features. In that sense, XGBoost Classifier gave the nearest result or best two crop confidences to choose from.
+
+\section{Result \& Discussion}
+
+Significant differences among the performances of the models have resulted from this investigation. Of all, the XGBoost Classifier seems to perform highest in recommendation performance. Simpler models, for instance, Random Forest, CATBoost Classifier, and Logistic Regression, on the other hand, did badly and achieved lesser accuracies. Real-world confidence recommendations for crop selection were less feasible with these models. These models' comparatively poor performance highlights their shortcomings in handling the dataset's non-linear connections and feature dependencies. Unlike the other models., XGBoost provides the crop options with much higher probability which can actually be perceived by farmers without risks and loss. 
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{ROC2.png}
+    \caption{ROC Curve for XGBoost Classifier}
+    \label{fig:rocxgboost}
+\end{figure}
+
+This ROC curve here visualizes the performance of the multi-class classification model using the one-vs-rest approach. Each curve represents the classification performance of the model for one crop class (e.g., apple, banana, rice, etc.), plotted as True Positive Rate (TPR) vs. False Positive Rate (FPR). For all classes (e.g., apple, banana, etc.), the AUC is 1.00, indicating that the model perfectly distinguishes each class from the others. An AUC of 1.00 means the model has no classification errors for these crops in the tested dataset. The curves are clustered at the top-left corner of the graph, suggesting near-perfect performance, with a hig h TPR and a very low FPR for all classes. The dashed line (AUC = 0.5) represents a random classifier, and all curves are far above it, confirming the model’s reliability. The one-vs-rest method distinguishes one class (e.g., apple) against all other classes collectively, repeating this for each crop class.
+In summary, this ROC curve indicates that the XGBoost model is performing exceptionally well for predicting crop classes, as evidenced by the perfect AUC scores. It suggests the model can reliably differentiate between crops based on the input features
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=\linewidth]{APP.png}
+    \caption{App Deployment Interface for Multiple Recommendation }
+    \label{fig:rocxgboost}
+\end{figure}
+
+
+Using numpy, pandas, sklearn under Django, a system interface was built for multiple crop recommendation which also shows the two best crop analysis according to this model. From this analysis, more models can be implemented this way for better recommendation testing.\cite{waseeAhsan2024}
+
+As for the limitation, the performance of models depends on the quality and completeness of data. It all depends basically on the data quality and completeness, which are inconsistent in some parts of the world; their accuracies therefore vary in their prediction. Efficiency can hence be brought to a minimal since models could have been produced for specific regions with specific areas of climates and types of soils, uses differing highly from place to place in agriculture. 
+For future works, more machine learning algorithms can be trained and tested for this purpose of this study. More precisely, deep learning-for instance, using CNNs or LSTMs-for feature extraction and prediction would model the complex relationships in these data that the more traditional machine learning models cannot grasp. IoT sensors and real-time weather information might be integrated in further research, thus being able to provide location-based dynamic recommendations of crops with greater precision and adaptability. 
+
+
+\section{Conclusion}
+The proposed model prioritizes important features like N (Nitrogen), P (Phosphorus), K (Potassium), temperature, humidity, pH, and rainfall that are crucial for predicting the soil and climate conditions of a particular region. Planting various crops considering these variables will be highly helpful for improving the soil conditions and increasing the economic revenue of a nation. The model is highly confident of the recommendations it has made to the farmers in terms of Predicted Crop, 1st Best Crop with Confidence, and 2nd Best Crop with Confidence for reliable insights. In this way, it is ensured that agricultural practice is data-driven and hence sustainable, helping farmers optimize crop yield and decision-making with multiple recommendation choices. 
+
+
+
+
+
+
+
+\section*{Acknowledgment}
+
+Gratitude to the resources and tools used in this work: providing insight from ChatGPT, data management by Quiltbot, and language accuracy by Grammarly. GeeksforGeeks, JavaTpoint, and IBM provided technical information in developing this. These tools contributed toward quality and precision in the work.
+
+\cite{bharathi2022experimental}
+\cite{ramadasan2023classification}
+\cite{kashyap2021sensing}
+\cite{ahmed2022impact}
+\cite{shehadeh2021machine}
+\cite{geeksforlearn:2024}
+
+\bibliographystyle{ieeetr}
+    \bibliography{reference}
+
+
+
+
+\end{document}
